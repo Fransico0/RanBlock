@@ -12,14 +12,15 @@ pcall(function()
         local Handle = BP.Block.Handle:Clone()
         local Outline = WS.GameStorage.Blocks.Block
         local Selection = PG.SelectionBox:Clone()
-		Tool.TextureId = "rbxassetid://13049842307"
+
+	for _, plr in pairs(BP:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
+	if DB then Tool.Parent = BP end
+	DB = true
+
+	Tool.TextureId = "rbxassetid://13049842307"
         Tool.Name = "RanBlock"
         Tool.CanBeDropped = false
         Handle.Parent = Tool
-
-		for _, plr in pairs(BP:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
-		if DB then Tool.Parent = BP end
-		DB = true
 
         Tool.Activated:Connect(function()
             local directions = {0, -8, 0}
