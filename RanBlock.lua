@@ -31,6 +31,10 @@ pcall(function()
 
             local fire = {nil, Enum.NormalId.Top, CR.HumanoidRootPart.Position + Vector3.new(directions[1],directions[2],directions[3])}
             BP.Block.RemoteEvent:FireServer(fire[1], fire[2], fire[3])
+			while wait(0.001) do
+				LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
+				LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
+            end
         end)
        	Tool.Equipped:Connect(function()
             Outline:Clone()
@@ -45,8 +49,6 @@ pcall(function()
 			LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
             while wait(0.001) do
                 Outline.Position = CR:FindFirstChild("HumanoidRootPart").Position + Vector3.new(0, -8, 0)
-				LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
-				LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
             end
         end)
         Tool.Unequipped:Connect(function()
