@@ -13,20 +13,18 @@ pcall(function()
         local Handle = BP.Block.Handle:Clone()
         local Outline = WS.GameStorage.Blocks.Block
         local Selection = PG.SelectionBox:Clone()
-	local LeftGui = Handle.LeftGui.Num
-	local LeftGui2 = Handle.LeftGui2.Num
+		local LeftGui = Handle.LeftGui.Num
+		local LeftGui2 = Handle.LeftGui2.Num
 
-	for _, plr in pairs(BP:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
-	for _, plr in pairs(CR:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
-	if DB then Tool.Parent = BP end
-	DB = true
+		for _, plr in pairs(BP:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
+		for _, plr in pairs(CR:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
+		if DB then Tool.Parent = BP end
+		DB = true
 
-	Tool.TextureId = "rbxassetid://13049842307"
-        Tool.Name = "RanBlock"
-        Tool.CanBeDropped = false
-        Handle.Parent = Tool
-	LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
-	LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
+		Tool.TextureId = "rbxassetid://13049842307"
+		Tool.Name = "RanBlock"
+		Tool.CanBeDropped = false
+		Handle.Parent = Tool
 
         Tool.Activated:Connect(function()
             local directions = {0, -8, 0}
@@ -43,10 +41,12 @@ pcall(function()
             Outline.Parent = WS.GameStorage.Blocks
             Selection.Adornee = Outline
             Selection.Parent = Outline
+			LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
+			LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
             while wait(0.001) do
                 Outline.Position = CR:FindFirstChild("HumanoidRootPart").Position + Vector3.new(0, -8, 0)
-		LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
-		LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
+				LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
+				LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
             end
         end)
         Tool.Unequipped:Connect(function()
