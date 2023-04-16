@@ -21,10 +21,12 @@ pcall(function()
 	if DB then Tool.Parent = BP end
 	DB = true
 
-		Tool.TextureId = "rbxassetid://13049842307"
+	Tool.TextureId = "rbxassetid://13049842307"
         Tool.Name = "RanBlock"
         Tool.CanBeDropped = false
         Handle.Parent = Tool
+	LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
+	LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
 
         Tool.Activated:Connect(function()
             local directions = {0, -8, 0}
