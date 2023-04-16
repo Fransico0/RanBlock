@@ -13,6 +13,8 @@ pcall(function()
         local Handle = BP.Block.Handle:Clone()
         local Outline = WS.GameStorage.Blocks.Block
         local Selection = PG.SelectionBox:Clone()
+		local LeftGui = Handle.LeftGui.Num
+		local LeftGui2 = Handle.LeftGui2.Num
 
 		for _, plr in pairs(BP:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
 		for _, plr in pairs(CR:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
