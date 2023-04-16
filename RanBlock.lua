@@ -13,13 +13,15 @@ pcall(function()
         local Handle = BP.Block.Handle:Clone()
         local Outline = WS.GameStorage.Blocks.Block
         local Selection = PG.SelectionBox:Clone()
+	local LeftGui = Handle.LeftGui.Num
+	local LeftGui2 = Handle.LeftGui2.Num
 
 	for _, plr in pairs(BP:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
 	for _, plr in pairs(CR:GetChildren()) do if plr.Name == "RanBlock" then DB = false end end
 	if DB then Tool.Parent = BP end
 	DB = true
 
-	Tool.TextureId = "rbxassetid://13049842307"
+		Tool.TextureId = "rbxassetid://13049842307"
         Tool.Name = "RanBlock"
         Tool.CanBeDropped = false
         Handle.Parent = Tool
@@ -30,7 +32,7 @@ pcall(function()
             local fire = {nil, Enum.NormalId.Top, CR.HumanoidRootPart.Position + Vector3.new(directions[1],directions[2],directions[3])}
             BP.Block.RemoteEvent:FireServer(fire[1], fire[2], fire[3])
         end)
-        Tool.Equipped:Connect(function()
+       	Tool.Equipped:Connect(function()
             Outline:Clone()
             Outline.CanCollide = false
             Outline.Anchored = true
@@ -41,6 +43,8 @@ pcall(function()
             Selection.Parent = Outline
             while wait(0.001) do
                 Outline.Position = CR:FindFirstChild("HumanoidRootPart").Position + Vector3.new(0, -8, 0)
+		LeftGui.Text = BP.Block.Handle.LeftGui.Num.Text
+		LeftGui2.Text = BP.Block.Handle.LeftGui2.Num.Text
             end
         end)
         Tool.Unequipped:Connect(function()
