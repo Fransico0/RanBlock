@@ -2,11 +2,12 @@ local LP = game.Players.LocalPlayer
 
 pcall(function()
 	if LP.Backpack:FindFirstChild("Sword") then
-	LP.Backpack.Sword.Parent = LP.Character
-	LP.Character.Sword.Activated:Connect(function()
-		wait(1)
-		LP.Character.Sword.Parent = LP.Backpack
-		wait(0.4)
 		LP.Backpack.Sword.Parent = LP.Character
-	end)
+		LP.Character.Sword.Activated:Connect(function()
+			wait(1)
+			LP.Character.Sword.Parent = LP.Backpack
+			wait(0.4)
+			LP.Backpack.Sword.Parent = LP.Character
+		end)
+	end
 end)
