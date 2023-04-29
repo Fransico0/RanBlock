@@ -6,7 +6,7 @@ pcall(function()
 		LP.Character.Sword.Activated:Connect(function()
 			wait(1)
 			LP.Character.Sword.Parent = LP.Backpack
-			wait(0.4)
+			wait(0.5)
 			LP.Backpack.Sword.Parent = LP.Character
 		end)
 	end
