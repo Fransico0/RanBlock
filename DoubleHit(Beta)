@@ -4,7 +4,7 @@ pcall(function()
 	if LP.Backpack:FindFirstChild("Sword") then
 		LP.Backpack.Sword.Parent = LP.Character
 		LP.Character.Sword.Activated:Connect(function()
-			wait(1)
+			wait(0.9)
 			LP.Character.Sword.Parent = LP.Backpack
 			wait(0.5)
 			LP.Backpack.Sword.Parent = LP.Character
